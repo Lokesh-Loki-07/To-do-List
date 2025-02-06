@@ -1,0 +1,14 @@
+<nav class="navbar">
+    <div class="navbar-container">
+      <a class="navbar-logo" routerLink="/">MyApp</a>
+  
+      <ul class="navbar-links">
+        <li><a routerLink="/dashboard" routerLinkActive="active-link">Dashboard</a></li>
+        <li><a routerLink="/profile" routerLinkActive="active-link">Profile</a></li>
+        <li><a routerLink="/settings" routerLinkActive="active-link">Settings</a></li>
+      </ul>
+  
+      <button class="logout-button" (click)="onLogout()">Logout</button>
+    </div>
+  </nav>
+  

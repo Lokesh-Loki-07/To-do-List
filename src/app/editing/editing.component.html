@@ -1,0 +1,38 @@
+<h2>Update User</h2>
+
+<form (ngSubmit)="saveUser()">
+  <label>First Name:</label>
+  <input type="text" [(ngModel)]="user.firstname" name="firstname" required />
+
+  <label>Last Name:</label>
+  <input type="text" [(ngModel)]="user.lastname" name="lastname" required />
+
+  <label>Email:</label>
+  <input type="email" [(ngModel)]="user.email" name="email" required />
+
+  <label>Phone:</label>
+  <input type="text" [(ngModel)]="user.phone" name="phone" pattern="^\d{10}$" required />
+
+  <label>Password:</label>
+  <input type="password" [(ngModel)]="user.password" name="password" required />
+
+  <label>ConfirmPassword:</label>
+  <input type="password" [(ngModel)]="user.confirmPassword" name="confirmPassword" required />
+  <div *ngIf="user.password !== user.confirmPassword">
+    Passwords do not match.
+  </div>
+
+  <label>dob:</label>
+  <input type="date" [(ngModel)]="user.dob" name="dob" required />
+
+  <label>Role:</label>
+  <select [(ngModel)]="user.role" name="role" required>
+    <option value="">Select Role</option>
+    <option value="Admin">Admin</option>
+    <option value="User">User</option>
+  </select>
+
+  <button type="submit">Update</button>
+  <button type="button" (click)="resetForm()">Cancel</button>
+  
+</form>

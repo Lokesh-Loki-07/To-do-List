@@ -1,0 +1,106 @@
+<h2>Register Form</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <!-- First Name -->
+  <div>
+    <label for="firstname">First Name:</label>
+    <input id="firstname" type="text" formControlName="firstname" />
+    <div *ngIf="submitted && registerForm.controls['firstname'].errors">
+      <small *ngIf="registerForm.controls['firstname'].errors['required']">
+        First Name is required
+      </small>
+    </div>
+  </div>
+
+  <!-- Last Name -->
+  <div>
+    <label for="lastname">Last Name:</label>
+    <input id="lastname" type="text" formControlName="lastname" />
+    <div *ngIf="submitted && registerForm.controls['lastname'].errors">
+      <small *ngIf="registerForm.controls['lastname'].errors['required']">
+        Last Name is required
+      </small>
+    </div>
+  </div>
+
+  <!-- Phone -->
+  <div>
+    <label for="phone">Phone:</label>
+    <input id="phone" type="text" formControlName="phone" />
+    <div *ngIf="submitted && registerForm.controls['phone'].errors">
+      <small *ngIf="registerForm.controls['phone'].errors['required']">
+        Phone is required
+      </small>
+      <small *ngIf="registerForm.controls['phone'].errors['pattern']">
+        Phone must be a valid 10-digit number
+      </small>
+    </div>
+  </div>
+
+  <!-- Email -->
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" type="email" formControlName="email" />
+    <div *ngIf="submitted && registerForm.controls['email'].errors">
+      <small *ngIf="registerForm.controls['email'].errors['required']">
+        Email is required
+      </small>
+      <small *ngIf="registerForm.controls['email'].errors['email']">
+        Enter a valid email address
+      </small>
+    </div>
+  </div>
+
+  <!-- Password -->
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" type="password" formControlName="password" />
+    <div *ngIf="submitted && registerForm.controls['password'].errors">
+      <small *ngIf="registerForm.controls['password'].errors['required']">
+        Password is required
+      </small>
+    </div>
+  </div>
+
+  <!-- Confirm Password -->
+  <div>
+    <label for="confirmPassword">Confirm Password:</label>
+    <input id="confirmPassword" type="password" formControlName="confirmPassword" />
+    <div *ngIf="submitted && registerForm.errors?.['passwordMismatch']">
+      <small>Passwords do not match</small>
+    </div>
+  </div>
+
+  <!-- Date of Birth -->
+  <div>
+    <label for="dob">Date of Birth:</label>
+    <input id="dob" type="date" formControlName="dob" />
+    <div *ngIf="submitted && registerForm.controls['dob'].errors">
+      <small *ngIf="registerForm.controls['dob'].errors['required']">
+        Date of Birth is required
+      </small>
+    </div>
+  </div>
+
+  <div>
+    <label for="role">Role:</label>
+    <select id="role" formControlName="role">
+      <option value="" disabled selected>Select a role</option>
+      <option value="Admin">Admin</option>
+      <option value="User">User</option>
+    </select>
+    
+    <div *ngIf="submitted && registerForm.controls['role'].errors">
+      <small *ngIf="registerForm.controls['role'].errors['required']">
+        Role is required
+      </small>
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit">Register</button>
+
+
+</form>
+
+<!-- Back to Register -->
+<p>Already have an account? <a routerLink="/signin">Signin</a></p>
